@@ -8,7 +8,7 @@
 
 | 类型     | 名称     |
 | -------  | -------- |
-| 管理工具 | libvirt  |
+| 管理工具 | +[libvirt](libvirt.md)  |
 | 镜像工具 | qemu-img, kpartx, losetup |
 | 网络工具 | brctl, openvswitch |
 
