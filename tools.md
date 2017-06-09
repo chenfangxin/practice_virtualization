@@ -6,12 +6,11 @@
 
 #### 虚拟机相关工具
 
-| 类型     | 名称     |
-| -------  | -------- |
-| 管理工具 | +[libvirt](libvirt.md)  |
-| 镜像工具 | qemu-img, kpartx, losetup |
-| 网络工具 | brctl, openvswitch |
-
+| 类型     						| 名称     					|
+| ----------------------------  | ------------------------- |
+| [管理工具](libvirt.md) 		| libvirt  					|
+| [镜像工具](img_tools.md) 		| qemu-img, kpartx, losetup |
+| [网络工具](network_tools.md)) | brctl, openvswitch 		|
 
 --------------------
 
