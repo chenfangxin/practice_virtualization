@@ -10,7 +10,7 @@
 | ----------------------------  | ------------------------- |
 | [管理工具](libvirt.md) 		| libvirt  					|
 | [镜像工具](img_tools.md) 		| qemu-img, kpartx, losetup |
-| [网络工具](network_tools.md)) | brctl, openvswitch 		|
+| [网络工具](network_tools.md)  | brctl, openvswitch 		|
 
 --------------------
 
