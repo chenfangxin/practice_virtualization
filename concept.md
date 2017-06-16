@@ -31,6 +31,8 @@
 
 + 硬件辅助虚拟化(Hardware-assisted Virtualization)：利用CPU对虚拟化提供的特殊支持，比如Intel VT-x或AMD-v技术，目前几乎所有的厂家都支持这种方式。
 
+要深入理解`硬件辅助虚拟化`，详见[HVM](HVM.md)
+
 --------------------
 #### 容器
 
