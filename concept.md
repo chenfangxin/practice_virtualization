@@ -21,7 +21,7 @@
 + [XEN](XEN.md)
 + VMware
 
-要让虚拟机跑起来，关键是要解决`Ring Deprivlieging`问题，即要在CPU的非特权级运行虚机里的操作系统(Guest OS)，因为在非特权级，Guest OS中的某些指令不能正常执行。
+要让虚拟机跑起来，关键是要解决[`Ring Deprivileging`](ring_deprivileging.md)问题，即要在CPU的非特权级运行虚机里的操作系统(Guest OS)，因为在非特权级，Guest OS中的某些指令不能正常执行。
 
 有三种方法解决这个问题：
 
