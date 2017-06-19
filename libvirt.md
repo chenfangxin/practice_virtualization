@@ -17,7 +17,7 @@ Libvirt是使用最广泛的虚拟机管理库，提供虚拟机的管理工具�
 
 #### 虚机配置XML文件
 
-Libvirt库使用的虚拟机的配置文件
+Libvirt中每个虚机称为一个`domain`，虚拟机的配置文件格式详见[Domain XML](http://libvirt.org/formatdomain.html)。
 
 + 设置虚机的CPU
 
