@@ -22,13 +22,16 @@
 `openvswitch`是最常用的虚拟交换机，用于连接虚拟机和物理网络设备。
 
 | 命令 | 作用 |
-| ------------------------------------- | ------------------------- 			|
-| ovs-vsctl show 						| 显示当前系统中的虚拟交换机的配置 		|
-| ovs-vsctl add-br BRNAME 				| 添加虚拟交换机 						|
-| ovs-vsctl add-port BRNAME	PORT		| 将接口加入虚拟交换机					|
-| 										|										|
-| ovs-ofctl show BRNAME					| 显示指定OpenFlow虚拟交换机的配置		|
-| ovs-ofctl dump-ports BRNAME			| 显示指定OpenFlow虚拟交互机的端口统计 	|
-| ovs-ofctl dump-flows BRNAME			| 显示指定OpenFlow虚拟交换机的流规则 	|
-| ovs-ofctl add-flow BRNAME	'OF-RULE'	| 添加OpenFlow流规则					|
+| ----------------------------------------- | ------------------------- 			|
+| ovs-vsctl show 							| 显示当前系统中的虚拟交换机的配置 		|
+| ovs-vsctl add-br BRNAME 					| 添加虚拟交换机 						|
+| ovs-vsctl add-port BRNAME	PORT			| 将接口加入虚拟交换机					|
+| ovs-vsctl list interface PORT				| 显示虚拟交换机的接口信息				|
+| 											|										|
+| ovs-ofctl show BRNAME						| 显示指定OpenFlow虚拟交换机的配置		|
+| ovs-ofctl dump-ports BRNAME				| 显示指定OpenFlow虚拟交互机的端口统计 	|
+| ovs-ofctl mod-port BRNAME	PORT up/down 	| 修改端口状态							|
+| 											|										|
+| ovs-ofctl dump-flows BRNAME				| 显示指定OpenFlow虚拟交换机的流规则 	|
+| ovs-ofctl add-flow BRNAME	'OF-RULE'		| 添加OpenFlow流规则					|
 

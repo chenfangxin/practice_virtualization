@@ -17,8 +17,8 @@
 
 目前，以虚拟机方式实现的虚拟化环境有：
 
-+ QEMU/KVM
-+ XEN
++ [QEMU/KVM](KVM.md)
++ [XEN](XEN.md)
 + VMware
 
 要让虚拟机跑起来，关键是要解决`Ring Deprivlieging`问题，即要在CPU的非特权级运行虚机里的操作系统(Guest OS)，这会导致Guest OS中的某些指令不能正常执行。
