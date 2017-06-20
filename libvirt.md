@@ -72,7 +72,18 @@ Libvirt中每个虚机称为一个`domain`，虚拟机的配置文件格式详�
 
 ++ 设置虚机的网络接口
 
-虚机使用的网络接口，可以由多种实现方式，比如全虚拟型，半虚拟型以及硬件直通型等。全虚拟/半虚拟型网络接口的实现，分为前端(Frontend)和后端(Backend)，前端就是虚机系统看到的设备，后端设备是`Hypervisor`中看到的设备。前端设备的描述放在`<interface>`二级标签中，如下：
+虚机使用的网络接口，可以由多种实现方式，比如全虚拟型，半虚拟型以及硬件直通型等。全虚拟/半虚拟型网络接口的实现，分为前端(Frontend)和后端(Backend)，前端就是虚机系统看到的设备，后端设备是`Hypervisor`中看到的设备。前端设备的描述放在`<interface type='TYPE' managed='yes'>`二级标签中，其中`TYPE`的常用设定如下：
+
+| 类型 		| 描述 |
+| ---- 		| ---- |
+| network 	| 连接到`Hypervisor`中的libvirt管理的一个网络 		|
+| bridge 	| 连接到`Hypervisor`中的一个Linux Bridge或一个OVS桥 |
+| ethernet 	| 基于tap/tun，可以指定一个初始化脚本				|
+| direct 	| 基于macvtap，提供4中模式：vepa, bridge, private, passthrough |
+| hostdev 	| 用于将基于SRIOV的VF设备传给虚机	|
+| vhostuser	| vhost backend使用vhost-user	 	|
+
+将后端网络设备连接在Linux桥`br0`上，标签如下：
 
 ```
 <interface type='bridge'>
@@ -82,10 +93,18 @@ Libvirt中每个虚机称为一个`domain`，虚拟机的配置文件格式详�
 </interface>
 ```
 
-以上标签是将后端网络设备连接在Linux桥`br0`上，若后端要连接在OVS上，或在DPDK加速的OVS上，其描述有所不同。
+后端要连接OVS上，标签如下：
 
+```
+<interface type='bridge'>
+	<mac address='52:54:00:f3:6a:f3'/>
+	<source bridge='ovsbr0'>
+	<virtualport type='openvswitch'/>
+	<model type='e1000'/>
+</interface>
+```
 
-直通模式是将`Hypervisor`中的设备直接交给虚机管理，使用`<hostdev>`标签描述，如下：
+直通模式是将`Hypervisor`中的设备直接交给虚机管理，使用`<hostdev mode='subsystem' type='pci' managed='yes'>`标签描述，如下：
 
 ```
 <hostdev mode='subsystem' type='pci' managed='yes'>
