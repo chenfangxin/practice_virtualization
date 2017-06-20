@@ -17,11 +17,11 @@
 
 目前，以虚拟机方式实现的虚拟化环境有：
 
-+ [QEMU/KVM](KVM.md)
-+ [XEN](XEN.md)
 + VMware
++ [XEN](XEN.md)
++ [QEMU/KVM](KVM.md)
 
-要让虚拟机跑起来，关键是要解决[`临界指令`](x86_problem.md)问题，有三种方法解决这个问题：
+要虚拟机跑起来，关键是要解决[`临界指令`](x86_problem.md)问题，有三种方法解决这个问题：
 
 + 全虚拟化(Full-Virtualization)：使用BT(Binary Transition)技术，替换Guest OS中的不能虚拟化的指令。VMware支持这种方式
 
@@ -29,7 +29,7 @@
 
 + 硬件辅助虚拟化(Hardware-assisted Virtualization)：利用CPU对虚拟化提供的特殊支持，比如Intel VT-x或AMD-v技术，目前几乎所有的厂家都支持这种方式。
 
-要深入理解`硬件辅助虚拟化`，详见[HVM](HVM.md)
+要深入理解硬件辅助虚拟化，详见[HVM](HVM.md)
 
 --------------------
 #### 容器
