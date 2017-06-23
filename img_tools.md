@@ -19,6 +19,12 @@ qemu-img create -f TYPE FILENAME SIZE
 dd if=/dev/zero of=FILENAME bs=1024k count=4096  # 4G Image
 ```
 
+用如下命令转换镜像文件格式：
+
+```
+qemu-img convert -O TYPE SRC_IMG_NAME DEST_IMG_NAME
+```
+
 ## 加载镜像文件
 
 #### 加载raw格式的镜像文件
