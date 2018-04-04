@@ -29,7 +29,7 @@
 
 + 硬件辅助虚拟化(Hardware-assisted Virtualization)：利用CPU对虚拟化提供的特殊支持，比如Intel VT-x或AMD-v技术，目前几乎所有的厂家都支持这种方式。
 
-要深入理解硬件辅助虚拟化，详见[HVM](HVM.md)
+要深入理解硬件辅助虚拟化，详见[HVM](HVM.md)。[Jailhouse](Jailhouse.md)是另一类基于硬件辅助的虚拟化技术。
 
 --------------------
 #### 容器
@@ -39,3 +39,4 @@
 + LXC
 + Docker
 
+在Linux系统中，`容器`是基于[namespace](namespace.md)和[Cgroup](cgroup.md)两个子系统实现的。
