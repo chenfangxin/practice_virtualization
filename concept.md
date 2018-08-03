@@ -38,8 +38,8 @@
 
 目前，以容器方式实现的虚拟化环境有： 
 
-+ LXC
-+ Docker
++ [LXC](lxc.md)
++ [Docker](docker.md)
 
 在Linux系统中，`容器`是基于[namespace](namespace.md)和[Cgroup](cgroup.md)两个子系统实现的。
 
