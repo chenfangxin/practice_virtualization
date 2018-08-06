@@ -1,6 +1,6 @@
 # 使用LXC(Linux Container)
 
-主机平台使用CentOS7，使用lxd-3.0（因为lxc-1.0只支持到2019年，lxd-3.0支持到2023年）。
+主机平台使用CentOS7，使用lxd-3.0（因为lxc-1.0只支持到2019年，lxd-3.0支持到2023年）, lxd用go语言实现。
 
 # 安装LXD
 
@@ -21,5 +21,6 @@ snap install lxd
 # Configure LXD
 lxd init
 ```
-#  
+# 使用LXD  
+
 
