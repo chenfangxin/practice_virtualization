@@ -25,12 +25,11 @@ lxc-checkconfig
 #### 创建LXC容器
 
 1. 下载LXC Rootfs
+
 ```
 wget -c https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images/centos/7/amd64/default/20180806_02:16/rootfs.tar.xz
 
 tar xf rootfs.tar.xz
-
-
 ```
 
 #### LXC的原理
@@ -56,10 +55,36 @@ lxd是下一代容器管理工具，并不是重写了lxc，而是基于lxc，�
 
 #### 安装LXD
 
-```
+使用 ganto/lxc3 repo
 
+```
+wget -c https://copr.fedorainfracloud.org/coprs/ganto/lxc3/repo/epel-7/ganto-lxc3-epel-7.repo
+
+yum install lxc lxc-templates
+yum install lxd lxd-client lxd-tools
 ```
 
 #### 使用LXD  
+
+```
+yum install libvirt
+systemctl start libvirtd
+systemctl enable libvirt
+
+systemctl enable --now lxc.service
+
+
+usermod -a -G lxd root
+echo "root:1000000:65536" >> /etc/subuid
+echo "root:1000000:65536" >> /etc/subgid
+
+systemctl enable --now lxd
+
+source /etc/profile
+lxd init
+
+lxc list
+lxc image list
+```
 
 
