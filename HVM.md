@@ -5,7 +5,6 @@
 #### Intel VT-x
 
 
-
 #### EPT(Extended Page Tables)
 
 
