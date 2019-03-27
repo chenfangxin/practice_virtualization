@@ -15,8 +15,7 @@ cd lxc-3.0.1
 make
 make install
 
-systemctl start lxc
-systemctl enable lxc
+systemctl enable --now lxc
 systemctl status lxc
 
 lxc-checkconfig
@@ -45,7 +44,7 @@ LXC还使用如下安全特性：
 * [Seccomp policies](seccomp.md)
 * [Kernel Capabilities](capabilities.md)
 
-> 引申阅读[Linux Security Module](lsm.md)
+> 引申阅读 [Linux Security Module](lsm.md)
 
 ----------------------------------------
 
@@ -55,7 +54,7 @@ lxd是下一代容器管理工具，并不是重写了lxc，而是基于lxc，�
 
 #### 安装LXD
 
-使用 ganto/lxc3 repo
+使用 ganto/lxc3 repo，用如下命令安装lxc和lxd：
 
 ```
 wget -c https://copr.fedorainfracloud.org/coprs/ganto/lxc3/repo/epel-7/ganto-lxc3-epel-7.repo
@@ -68,11 +67,9 @@ yum install lxd lxd-client lxd-tools
 
 ```
 yum install libvirt
-systemctl start libvirtd
-systemctl enable libvirt
+systemctl enable --now libvirt
 
-systemctl enable --now lxc.service
-
+systemctl enable --now lxc
 
 usermod -a -G lxd root
 echo "root:1000000:65536" >> /etc/subuid
