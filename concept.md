@@ -41,9 +41,9 @@
 + [LXC](lxc.md)
 + [Docker](docker.md)
 
-在Linux系统中，`容器`是基于[namespace](namespace.md)和[Cgroup](cgroup.md)两个子系统实现的。
+Linux的`容器`主要是基于[namespace](namespace.md)和[Cgroup](cgroup.md)两个子系统实现的。利用这两个子系统，实现用户空间运行环境的隔离，但是内核还是共用的。
 
-FaceBook推出的基于`hypervisor`的容器[kata container](kata_container.md)
+现在还有将虚拟机技术和容器技术相结合的容器，比如FaceBook推出的[kata container](kata_container.md)，还有Amazon AWS推出的[firecracker](firecracker.md)。
 
 --------------------
 #### 沙箱(SandBox)
