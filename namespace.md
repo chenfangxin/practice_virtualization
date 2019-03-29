@@ -1,10 +1,10 @@
-# Namespace系统
+# Namespaces系统
 
-Linux内核的Namespace机制，被用来隔离不同的进程可以访问的系统资源。
+Linux内核的Namespaces机制，被用来隔离不同的进程可以访问的系统资源。
 
-## 进程的名字空间(Namespace)
+## 进程的名字空间(Namespaces)
 
-Linux系统中，每个进程都有所属的名字空间(Namespace)，使用如下命令可以查看进程的名字空间(Namespace)：
+Linux系统中，每个进程都有所属的名字空间(Namespaces)，使用如下命令可以查看进程的名字空间(Namespaces)：
 
 ```
 ls /proc/PID/ns
@@ -24,20 +24,21 @@ lrwxrwxrwx 1 root root 0 Mar 27 15:43 uts -> 'uts:[4026532531]'
 
 进程所属的每个Namespace，都在`/proc/PID/ns`目录下都有一个对应的符号连接文件。
 
+> 每个Namespace里，到底有什么？怎么查看？
 
 ## 名字空间(Namespace)的内核实现
 
 目前Linux内核提供7种Namesapce(cgroup, mnt, uts, ipc, pid, net, user)，分别针对7种系统资源。
 
-| 名字空间      | 内核选项              |  说明       |
-|---------------|-----------------------|-------------|
-| cgroup        | CONFIG_CGROUPS        | 4.6 引入  |
-| mnt           |                       | 2.4.19 引入，针对文件系统的挂载点                          |
-| uts           | CONFIG_UTS_NS         | 2.6.19 引入，这对hostname和domainname两个系统标识          |
-| ipc           | CONFIG_IPC_NS         | 2.6.19 引入，针对IPC资源(SystemV IPC, Posix message Queue) |
-| pid           | CONFIG_PID_NS         | 2.6.24 引入，针对系统中的PID Number  |
-| net           | CONFIG_NET_NS         | 2.6.24 引入，针对系统中的网络资源，每个net namesapce都有自己的网络设备，IP地址，路由表，/proc/net/目录，端口号等   |
-| user          | CONFIG_USER_NS        | 2.6.23 引入，针对User 和 Group ID Number, 3.8 开始，非特权进程也能创建 User Namespace  |
+| 名字空间      | 内核编译选项     | 相关标志         |  说明       |
+|---------------|------------------|------------------|-------------|
+| cgroup        | CONFIG_CGROUPS   | CLONE_NEWCGROUP  | 4.6 引入, 与cgroup v2关系密切  |
+| mnt           | 缺省             | CLONE_NEWNS      | 2.4.19 引入，针对文件系统的挂载点                          |
+| uts           | CONFIG_UTS_NS    | CLONE_NWUTS      | 2.6.19 引入，这对hostname和domainname两个系统标识          |
+| ipc           | CONFIG_IPC_NS    | CLONE_NEWIPC     | 2.6.19 引入，针对IPC资源(SystemV IPC, Posix message Queue) |
+| pid           | CONFIG_PID_NS    | CLONE_NEWPID     | 2.6.24 引入，针对系统中的PID Number  |
+| net           | CONFIG_NET_NS    | CLONE_NEWNET     | 2.6.24 引入，针对系统中的网络资源，每个net namesapce都有自己的网络设备，IP地址，路由表，/proc/net/目录，端口号等   |
+| user          | CONFIG_USER_NS   | CLONE_NEWUSER    | 2.6.23 引入，针对User 和 Group ID Number。从3.8 开始，非特权进程也能创建 User Namespace  |
 
 Linux内核提供有三个与名字空间(Namespace)相关的系统调用：
 
